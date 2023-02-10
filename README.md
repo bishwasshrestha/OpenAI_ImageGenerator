@@ -6,6 +6,7 @@ that is integrated with OpenAi to generates a random image based on the input te
 ## App features
 * Generates image with the help of AI.
 * Confines size based on user's need.
+* Select no of variations needed.
 
 **Documentation to OpenAi is [here](https://platform.openai.com/docs/introduction)**
 ## Build
@@ -15,7 +16,7 @@ git clone https://github.com/bishwasshrestha/OpenAI_ImageGenerator.git
 ```
 
 ## Screenshot
-![image](https://user-images.githubusercontent.com/29711192/218062531-24da22bd-a5dd-4fc1-bfd7-a0e07aeb4956.png)
+![image](https://user-images.githubusercontent.com/29711192/218102016-97adcb7b-291a-4bb4-9a7a-cee0d23433e3.png)
 
 ## Usage
 
