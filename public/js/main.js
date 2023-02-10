@@ -5,18 +5,19 @@ function onSubmit(e) {
 
   const prompt = document.querySelector("#prompt").value;
   const size = document.querySelector("#size").value;
+  const variation = document.querySelector("#variation").value;
 
   if (prompt === "") {
     alert("Please enter some text");
     return;
   }
-  generateImageRequest(prompt, size);
+  generateImageRequest(prompt, size, variation);
 }
-
-async function generateImageRequest(prompt, size) {
+//Generating Image with openai api. 
+async function generateImageRequest(prompt, size, variation) {
   try {
     showSpinner();
-    const response = await fetch("openai/generateimage", {
+  await fetch("openai/generateimage", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -24,18 +25,21 @@ async function generateImageRequest(prompt, size) {
       body: JSON.stringify({
         prompt,
         size,
+        variation
       }),
-    });
-    if (!response.ok) {
-      removeSpinner()
-      throw new Error("This image could not be generated");
-    }
-    const data = await response.json();
-    // console.log(data)
-    const imageUrl = data.data;
-    document.querySelector("#image").src = imageUrl;
-    document.querySelector('.msg').textContent = prompt
-    removeSpinner();
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(data.data.length >= 1){       
+        const url = data.data  
+        url.forEach(element => {
+          const img = document.createElement('img')
+          img.src = element.url
+          document.querySelector('.image-container').appendChild(img)
+          removeSpinner();         
+        });
+      }     
+    })      
   } catch (error) {
     document.querySelector(".msg").textContent = error;
   }
