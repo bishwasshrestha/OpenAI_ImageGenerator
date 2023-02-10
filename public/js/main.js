@@ -1,7 +1,7 @@
 function onSubmit(e) {
   e.preventDefault();
-  document.querySelector(".msg").textContent = "";
-  document.querySelector("#image").src = "";
+  document.querySelector(".msg").textContent = '';
+  document.querySelector("#image").src = '';
 
   const prompt = document.querySelector("#prompt").value;
   const size = document.querySelector("#size").value;
@@ -34,6 +34,7 @@ async function generateImageRequest(prompt, size) {
     // console.log(data)
     const imageUrl = data.data;
     document.querySelector("#image").src = imageUrl;
+    document.querySelector('.msg').textContent = prompt
     removeSpinner();
   } catch (error) {
     document.querySelector(".msg").textContent = error;

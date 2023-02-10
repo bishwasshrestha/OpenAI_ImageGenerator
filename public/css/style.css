@@ -13,11 +13,12 @@
 }
 
 body {
+  height: 700px;  
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #333;
-  background: #f4f4f4;
+  background: #f4f4f4;   
 }
 
 /* Navbar */
@@ -48,12 +49,21 @@ body {
 .navbar a:hover {
   color: var(--primary-color);
 }
+/* Main */
+main{ 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;  
 
+}
 /* Showcase */
-.showcase {
-  height: 450px;
-  width: 100%;
-  background: var(--primary-color);
+.showcase { 
+  height: 600px;
+  width: 345px;
+  padding: 10px;
+  margin: 0;
+  background: var(--primary-color);  
 }
 
 .showcase h1 {
@@ -61,6 +71,7 @@ body {
   color: #333;
   text-align: center;
   padding: 1rem 0;
+  
 }
 
 .showcase form {
@@ -76,7 +87,7 @@ body {
 form select {
   font-size: 20px;
   width: 500px;
-  max-width: 500px;
+  max-width: 300px;
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -102,12 +113,15 @@ form button:hover {
 
 .image {
   width: 100%;
+  height: 600px;
   margin-top: 2rem;
+  
 }
 
 img {
   display: block;
   margin: auto;
+  padding: 10px;  
 }
 
 .msg {
